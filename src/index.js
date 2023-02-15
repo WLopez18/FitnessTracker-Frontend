@@ -27,20 +27,7 @@ const App = () => {
           />
       </Routes>
 
-      {/* <div>
-        <h2>Activities ({activities.length})</h2>
-        <ul>
-          {
-            activities.map(activity => {
-              return (
-                <li key={activity.id}>
-                  {activity.name}
-                </li>
-              );
-            })
-          }
-        </ul>
-      </div> */}
+      
     </div>
   );
 };
