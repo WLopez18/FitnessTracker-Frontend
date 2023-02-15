@@ -2,6 +2,9 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 
 const App = () => {
+  const fetchActivities = () => {
+
+  }
   return (
     <div>
       <h1>Front End</h1>
