@@ -19,6 +19,11 @@ const RoutineView = (props) => {
                                     return (
                                         <li key={activity.id}>
                                             <Link to={`/activities/${activity.id}`} >{activity.name}</Link>
+                                            <ul>
+                                                <li>description:{activity.description}</li>
+                                                <li>duration:{activity.duration}</li>
+                                                <li>count:{activity.count}</li>
+                                            </ul>
                                         </li>
                                     )
                                 })
