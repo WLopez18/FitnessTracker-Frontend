@@ -35,9 +35,9 @@ const App = () => {
         <Link to='/activities'>Activities ({activities.length})</Link>
       </nav>
       <Routes>
+        <Route path='/routines/:routineId' element={<RoutineView routines={routines} />} />
         <Route path="/routines" element={<AllRoutines routines={routines} />}
         />
-        <Route path='/routines/:routineId' element={<RoutineView routines={routines} />} />
         <Route path='/activities' element={<AllActivities activities={activities} />} />
       </Routes>
     </div>
