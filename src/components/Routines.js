@@ -13,11 +13,11 @@ const AllRoutines = (props) => {
 					routines.map(routine => {
 						// console.log(routine.activities)
 						return (
-							<li key={routine.id}>
+							<li style={{ border: '2px solid black' }} key={routine.id}>
 								<Link to={`/routines/${routine.id}`} >{routine.name}({routine.activities.length})</Link>
 								<ul>
 									<li>
-											Goal: {routine.goal}
+										Goal: {routine.goal}
 									</li>
 									<li>
 										Activities:
@@ -34,9 +34,9 @@ const AllRoutines = (props) => {
 										</ul>
 									</li>
 									<li id='routine-creatorName'>
-											Posted by {routine.creatorName}
+										Posted by {routine.creatorName}
 									</li>
-										{/* {post.isAuthor ? <button onClick={() => deletePost({ setPosts, posts, post, token })}>Delete</button> : null} */}
+									{/* {post.isAuthor ? <button onClick={() => deletePost({ setPosts, posts, post, token })}>Delete</button> : null} */}
 								</ul>
 							</li>
 						);
