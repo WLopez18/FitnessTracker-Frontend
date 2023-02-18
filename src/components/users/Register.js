@@ -24,8 +24,6 @@ const Register = () => {
         if (!result.success) {
           throw result.error;
         }
-        // console.log(result);
-
       })
       .catch(err => console.log(err));
   }
