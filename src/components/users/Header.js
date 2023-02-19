@@ -10,6 +10,9 @@ const Header = ({ routines, setUser, user, activities }) => {
             <h3>H3 Text Here</h3>
             <nav id='nav-bar'>
                 <Link to='/'>Home</Link>
+                {user.username &&(
+                     <Link to='/profile'>My Profile </Link>
+                )}
                 <Link to='/routines'>Routines ({routines.length})</Link>
                 <Link to='/activities'>Activities ({activities.length})</Link>
             </nav>
