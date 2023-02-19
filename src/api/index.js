@@ -44,7 +44,7 @@ const getUser = async (token) => {
         const response = await fetch(`${BASE_URL}/api/users/me`, {
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
+                Authorization : `Bearer ${token}`,
             },
         });
         const result = response.json();
@@ -65,7 +65,28 @@ const getAllRoutines = async () => {
         console.error(err);
     }
 }
-
+const createRoutine = async (token) => {
+    try {
+        const response = await fetch('http://fitnesstrac-kr.herokuapp.com/api/routines', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                 Authorization: `Bearer ${token}`,
+            },
+            body: JSON.stringify({
+              name: 'Long Cardio Routine',
+              goal: 'To get your heart pumping!',
+              isPublic: true
+            }),
+          }
+          );
+        const result = await response.json();
+        console.log(result);
+        return result;
+    } catch (error) {
+        console.error(error)
+    }
+}
 // Activities
 
 const getAllActivities = async () => {
@@ -83,5 +104,9 @@ module.exports = {
     getAllActivities,
     loginUser,
     getUser,
+<<<<<<< HEAD
 		registerUser,
+=======
+    createRoutine,
+>>>>>>> f2a084e (Defined createRoutine function, imported into MyProfile component, created token for createRoutine)
 };
