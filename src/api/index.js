@@ -104,9 +104,5 @@ module.exports = {
     getAllActivities,
     loginUser,
     getUser,
-<<<<<<< HEAD
 		registerUser,
-=======
-    createRoutine,
->>>>>>> f2a084e (Defined createRoutine function, imported into MyProfile component, created token for createRoutine)
 };
