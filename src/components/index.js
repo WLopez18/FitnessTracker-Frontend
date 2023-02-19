@@ -19,16 +19,6 @@ const Main = (props) => {
                 <Route path='/' element={
                     <div>
                         <div>Home</div>
-                        {/* {
-                            user.id ? <div>Welcome {user.username} <button onClick={logout}>Logout</button></div> : null
-                        }
-                        {
-                            !user.id ? (
-                                <div>
-                                    <Register />
-                                    <Login exchangeTokenForUser={exchangeTokenForUser} />
-                                </div>) : <div>Hello</div>
-                        } */}
                     </div>} />
             </Routes>
         </>

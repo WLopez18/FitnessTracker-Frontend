@@ -1,48 +1,43 @@
 import React, { useState } from "react";
+import { registerUser } from "../../api";
 
-const Register = () => {
+const RegisterButton = ({ setUser }) => {
+	const [error, setError] = useState({});
+    const [registerUsername, setRegisterUsername] = useState('')
+    const [registerPassword, setRegisterPassword] = useState('')
+	const handleClick = async () => {
+		const response = await registerUser(registerUsername, registerPassword);
+		if (response.token) {
+			localStorage.setItem('token', response.token);
+			setUser(response.user)
+		} else {
+			setError(response);
+		}
+        clearForm();
+	}
+    const clearForm = () => {
+        setRegisterUsername('')
+        setRegisterPassword('')
+    }
 
-  const [registerUsername, setRegisterUsername] = useState('')
-  const [registerPassword, setRegisterPassword] = useState('')
+	return (
+		<div>
+            <form onSubmit = { registerUser }>
+                <input 
+                placeholder="username"
+                value={registerUsername}
+                onChange = {ev => setRegisterUsername(ev.target.value)}
+                />
+                <input 
+                placeholder="password"
+                value={registerPassword}
+                onChange = {ev => setRegisterPassword(ev.target.value)}
+                />
+	        </form>
+			<button onClick={handleClick}>Register</button>
+			{error.message && <p style={{ color: 'red', fontWeight: '900' }}>{error.message}</p>}
+		</div>
+	)
+}
 
-  const register = (ev) => {
-    ev.preventDefault();
-    fetch('http://fitnesstrac-kr.herokuapp.com/api/users/register', {
-      method: "POST",
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(
-        {
-          username: registerUsername,
-          password: registerPassword
-        }
-      )
-    })
-      .then(response => response.json())
-      .then(result => {
-        if (!result.success) {
-          throw result.error;
-        }
-      })
-      .catch(err => console.log(err));
-  }
-
-  return (
-    <form onSubmit={register}>
-      <input
-        placeholder="username"
-        value={registerUsername}
-        onChange={ev => setRegisterUsername(ev.target.value)}
-      />
-      <input
-        placeholder="password"
-        value={registerPassword}
-        onChange={ev => setRegisterPassword(ev.target.value)}
-      />
-      <button>Register</button>
-    </form>
-  );
-};
-
-export default Register
+export default RegisterButton;
