@@ -7,8 +7,7 @@ import RegisterButton from "./Register";
 const Header = ({ routines, setUser, user, activities }) => {
     return (
         <div>
-            <h1>Header h1 Text</h1>
-            <h3>H3 Text Here</h3>
+            <h1>Fitness Tracker</h1>
             <nav id='nav-bar'>
                 <Link to='/'>Home</Link>
                 {user.username &&(

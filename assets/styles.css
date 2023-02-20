@@ -1,3 +1,15 @@
 body {
   font-family: verdana;
+  background: cornsilk
+}
+
+#nav-bar {
+  background: dodgerblue;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+h1 {
+  text-align: center;
 }
