@@ -15,6 +15,7 @@ const LoginButton = ({ setUser }) => {
         }
         clearForm();
     }
+
 //this function is to clear the form after hitting the login or register buttone
     const clearForm = () => {
         setLoginUsername('')

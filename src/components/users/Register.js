@@ -19,7 +19,7 @@ const RegisterButton = ({ setUser }) => {
         setRegisterUsername('')
         setRegisterPassword('')
     }
-
+    
     return (
         <div>
             <form onSubmit = { registerUser }>
