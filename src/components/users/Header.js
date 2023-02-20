@@ -2,6 +2,7 @@ import React from "react";
 import LoginButton from "./Login";
 import { Link } from 'react-router-dom';
 import LogoutButton from "./Logout";
+import RegisterButton from "./Register";
 
 const Header = ({ routines, setUser, user, activities }) => {
     return (
@@ -17,7 +18,11 @@ const Header = ({ routines, setUser, user, activities }) => {
                 <Link to='/activities'>Activities ({activities.length})</Link>
             </nav>
             {user.username && <p>Welcome {user.username}!</p>}
-            {user.username ? <LogoutButton setUser={setUser} /> : <LoginButton setUser={setUser} />}
+            {user.username ? <LogoutButton setUser={setUser} /> : (
+                <div>
+                    <RegisterButton setUser={setUser}/>
+                    <LoginButton setUser={setUser} />
+                </div> )}
         </div>
     );
 };
