@@ -65,7 +65,7 @@ const getAllRoutines = async () => {
         console.error(err);
     }
 }
-const createRoutine = async (token) => {
+const createRoutine = async (token, routines) => {
     try {
         const response = await fetch('http://fitnesstrac-kr.herokuapp.com/api/routines', {
             method: 'POST',
@@ -74,9 +74,9 @@ const createRoutine = async (token) => {
                 Authorization: `Bearer ${token}`,
             },
             body: JSON.stringify({
-                name: 'Long Cardio Routine',
-                goal: 'To get your heart pumping!',
-                isPublic: true
+                name: `${routines.name}`,
+                goal: `${routines.goal}`,
+                isPublic: routines.isPublic
             }),
         }
         );

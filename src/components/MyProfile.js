@@ -9,7 +9,7 @@ const MyProfile = ({ user, setRoutines, routines, activities }) => {
     const clickHandler = async () => {
         const token = window.localStorage.getItem('token');
         if (token) {
-            const response = await createRoutine(token, routines);
+            const response = await createRoutine(token);
             if (!response.error) {
                 response.activities = [];
                 setRoutines([response, ...routines]);
