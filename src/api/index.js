@@ -21,22 +21,22 @@ const loginUser = async (username, password) => {
 };
 
 const registerUser = async (username, password) => {
-	try {
-			const response = await fetch(`${BASE_URL}/api/users/register`, {
-					method: "POST",
-					headers: {
-							'Content-Type': 'application/json',
-					},
-					body: JSON.stringify({
-							username: `${username}`,
-							password: `${password}`
-					}),
-			});
-			const result = await response.json();
-			return result;
-	} catch (err) {
-			console.error(err);
-	}
+    try {
+        const response = await fetch(`${BASE_URL}/api/users/register`, {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                username: `${username}`,
+                password: `${password}`
+            }),
+        });
+        const result = await response.json();
+        return result;
+    } catch (err) {
+        console.error(err);
+    }
 };
 
 const getUser = async (token) => {
@@ -44,7 +44,7 @@ const getUser = async (token) => {
         const response = await fetch(`${BASE_URL}/api/users/me`, {
             headers: {
                 'Content-Type': 'application/json',
-                Authorization : `Bearer ${token}`,
+                Authorization: `Bearer ${token}`,
             },
         });
         const result = response.json();
@@ -71,15 +71,15 @@ const createRoutine = async (token) => {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                 Authorization: `Bearer ${token}`,
+                Authorization: `Bearer ${token}`,
             },
             body: JSON.stringify({
-              name: 'Long Cardio Routine',
-              goal: 'To get your heart pumping!',
-              isPublic: true
+                name: 'Long Cardio Routine',
+                goal: 'To get your heart pumping!',
+                isPublic: true
             }),
-          }
-          );
+        }
+        );
         const result = await response.json();
         console.log(result);
         return result;
@@ -104,5 +104,6 @@ module.exports = {
     getAllActivities,
     loginUser,
     getUser,
-		registerUser,
+    registerUser,
+    createRoutine,
 };

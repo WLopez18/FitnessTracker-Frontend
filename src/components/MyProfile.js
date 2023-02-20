@@ -1,30 +1,34 @@
+import { response } from 'express';
 import React from 'react';
-import { createRoutine } from '../api/index';
+import { createRoutine, getAllRoutines } from '../api/index';
 
-const MyProfile = ({ user }) => {
+const MyProfile = ({ user, setRoutines, routines }) => {
     const clickHandler = async () => {
-        const token = window.localStorage.getItem('token')
+        const token = window.localStorage.getItem('token');
         if (token) {
             const response = await createRoutine(token);
-            alert(response);
-
+            if (!response.error) {
+                response.activities = [];
+                setRoutines([response, ...routines]);
+            }
+            // alert(response);
         }
 
     };
     return (
         <>
-        {user.username ? (
-        <div>
-            <h3>{user.username}'s Profile</h3>
-            <h2>My Routines:</h2>
-            <button onClick={clickHandler}>
-                Create new routine
-                </button>
-        </div>
-    ) : (
-        <h1>You must log in!</h1>
-    )}
-    </>
+            {user.username ? (
+                <div>
+                    <h3>{user.username}'s Profile</h3>
+                    <h2>My Routines:</h2>
+                    <button onClick={clickHandler}>
+                        Create new routine
+                    </button>
+                </div>
+            ) : (
+                <h1>You must log in!</h1>
+            )}
+        </>
     );
 };
 

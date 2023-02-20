@@ -6,12 +6,12 @@ import RoutineView from './RoutineView';
 import MyProfile from './MyProfile';
 
 const Main = (props) => {
-    const { routines, activities, setActivities, user } = props;
+    const { routines, setRoutines, activities, setActivities, user } = props;
     return (
         <>
             <h1>Main Component</h1>
             <Routes>
-                <Route path='/profile' element={<MyProfile user={user}/>} /> 
+                <Route path='/profile' element={<MyProfile user={user} setRoutines={setRoutines} routines={routines} />} />
                 <Route path='/routines/:routineId' element={<RoutineView routines={routines} />} />
                 <Route path="/routines" element={<AllRoutines routines={routines} />}
                 />

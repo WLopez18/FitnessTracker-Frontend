@@ -35,12 +35,13 @@ const App = () => {
     return (
         <div>
             <Header routines={routines} setUser={setUser} user={user} activities={activities} />
-            <Main 
-                routines={routines} 
-                activities={activities} 
-                setActivities={setActivities} 
+            <Main
+                routines={routines}
+                setRoutines={setRoutines}
+                activities={activities}
+                setActivities={setActivities}
                 user={user}
-                />
+            />
 
         </div>
     );
